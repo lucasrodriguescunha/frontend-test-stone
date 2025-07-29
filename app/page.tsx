@@ -50,8 +50,8 @@ export default function Home() {
     <Container>
       <LogoSection>
         <Image
-          src="/stone-logo.svg"
-          alt="Logo da Stone"
+          src='/stone-logo.svg'
+          alt='Logo da Stone'
           height={81}
           width={163}
           priority
@@ -59,7 +59,7 @@ export default function Home() {
       </LogoSection>
 
       <InfoSection>
-        <DateTimeText dateTime="2021-01-14T21:00:00Z">
+        <DateTimeText dateTime='2021-01-14T21:00:00Z'>
           14 de janeiro de 2021 | 21:00 UTC
         </DateTimeText>
         <DataSourceText>
