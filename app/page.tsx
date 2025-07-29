@@ -1,71 +1,71 @@
 'use client';
 
+import Image from 'next/image';
 import styled from 'styled-components';
 
-// Componente estilizado simples
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem;
+  gap: 3rem;
+  background: #ffffff;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+`;
+
+const LogoSection = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 `;
 
-const Title = styled.h1`
-  color: white;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
-    font-size: 2rem;
-  }
+const InfoSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `;
 
-const Subtitle = styled.p`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.2rem;
-  text-align: center;
-  max-width: 600px;
-  line-height: 1.6;
+const DateTimeText = styled.time`
+  color: #45505e;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0;
 `;
 
-const Button = styled.button`
-  background: ${props => props.theme.colors.primary};
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 2rem;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: #0051a0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 112, 243, 0.3);
-  }
-  
-  &:active {
-    transform: translateY(0);
-  }
+const DataSourceText = styled.p`
+  color: #8c9cad;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0;
 `;
 
 export default function Home() {
   return (
     <Container>
-      <Title>Hello Styled Components!</Title>
-      <Subtitle>
-        Agora você tem o Styled Components configurado e funcionando! 
-        Este é um exemplo de como criar componentes estilizados com CSS-in-JS.
-      </Subtitle>
-      <Button onClick={() => alert('Styled Components funcionando!')}>
-        Clique aqui para testar
-      </Button>
+      <LogoSection>
+        <Image
+          src="/stone-logo.svg"
+          alt="Logo da Stone"
+          height={81}
+          width={163}
+          priority
+        />
+      </LogoSection>
+
+      <InfoSection>
+        <DateTimeText dateTime="2021-01-14T21:00:00Z">
+          14 de janeiro de 2021 | 21:00 UTC
+        </DateTimeText>
+        <DataSourceText>
+          Dados de câmbio disponibilizados pela Morningstar.
+        </DataSourceText>
+      </InfoSection>
     </Container>
   );
 }
