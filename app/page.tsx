@@ -1,71 +1,31 @@
 'use client';
 
-import Image from 'next/image';
 import styled from 'styled-components';
+import Header from './components/Header';
+import ContentComponent from './components/Content';
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 4rem;
-  gap: 3rem;
+  height: 100vh;
   background: #ffffff;
+  background-image: url('/background.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: right center;
+  padding: 4rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;
+    background-image: none;
   }
-`;
-
-const LogoSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const InfoSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const DateTimeText = styled.time`
-  color: #45505e;
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin: 0;
-`;
-
-const DataSourceText = styled.p`
-  color: #8c9cad;
-  font-size: 0.875rem;
-  font-weight: 400;
-  margin: 0;
 `;
 
 export default function Home() {
   return (
     <Container>
-      <LogoSection>
-        <Image
-          src='/stone-logo.svg'
-          alt='Logo da Stone'
-          height={81}
-          width={163}
-          priority
-        />
-      </LogoSection>
-
-      <InfoSection>
-        <DateTimeText dateTime='2021-01-14T21:00:00Z'>
-          14 de janeiro de 2021 | 21:00 UTC
-        </DateTimeText>
-        <DataSourceText>
-          Dados de câmbio disponibilizados pela Morningstar.
-        </DataSourceText>
-      </InfoSection>
+      <Header />
+      <ContentComponent />
     </Container>
   );
 }
