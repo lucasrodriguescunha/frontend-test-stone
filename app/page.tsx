@@ -9,7 +9,7 @@ const Container = styled.div`
   background: #ffffff;
   background-image: url('/background.svg');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: contain;
   background-position: right center;
   padding: 4rem;
 
