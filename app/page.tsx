@@ -13,7 +13,7 @@ const Container = styled.div`
   background-position: right center;
   padding: 4rem;
 
-  @media (max-width: 48rem) {
+  @media (max-width: 768px) {
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;

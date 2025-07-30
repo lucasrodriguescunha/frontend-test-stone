@@ -7,6 +7,10 @@ const Content = styled.main`
   height: 268px;
   background: #ffffff;
   padding: 6.5625rem 6.5625rem 0 0;
+
+  @media (max-width: 768px) {
+    
+  }
 `;
 
 const CurrencyForm = styled.section`

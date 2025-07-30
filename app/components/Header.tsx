@@ -11,6 +11,13 @@ const Header = styled.header`
   width: 33.625rem;
   height: 5.0625rem;
   gap: 3rem; 
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
 `;
 
 const Logo = styled.section`
