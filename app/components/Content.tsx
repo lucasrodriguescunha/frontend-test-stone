@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Content = styled.main`
@@ -197,24 +198,40 @@ const Icon = styled.img`
 `;
 
 export default function ContentComponent() {
+  const [usdAmount, setUsdAmount] = useState<string>('');
+  const [stateTax, setStateTax] = useState<string>('');
+
   return (
     <Content>
       <CurrencyForm>
         <FieldGroup>
-          <FieldLabel>
-            Dólár
-          </FieldLabel>
+          <FieldLabel htmlFor='usd-input'>Dólár</FieldLabel>
           <InputWrapper>
             <CurrencySymbol>$</CurrencySymbol>
-            <NumberFieldInput type='number' placeholder='1,00' />
+            <NumberFieldInput
+              id='usd-input'
+              type='number'
+              placeholder='1,00'
+              value={usdAmount}
+              onChange={(e) => setUsdAmount(e.target.value)}
+              step='0.01'
+              min='0'
+            />
           </InputWrapper>
         </FieldGroup>
 
         <FieldGroup>
-          <FieldLabel>
-            Taxa do estado
-          </FieldLabel>
-          <RegularFieldInput type='string' placeholder='0%' />
+          <FieldLabel htmlFor='tax-input'>Taxa do estado</FieldLabel>
+          <RegularFieldInput
+            id='tax-input'
+            type='number'
+            placeholder='0%'
+            value={stateTax}
+            onChange={(e) => setStateTax(e.target.value)}
+            step='0.1'
+            min='0'
+            max='100'
+          />
         </FieldGroup>
       </CurrencyForm>
 
