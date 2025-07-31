@@ -41,7 +41,54 @@ const FieldLabel = styled.label`
   padding-bottom: 0.625rem;
 `;
 
+const InputWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const CurrencySymbol = styled.span`
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2E3742;
+  font-size: 1rem;
+  font-weight: 400;
+  pointer-events: none;
+  z-index: 1;
+`;
+
 const NumberFieldInput = styled.input`
+  color: #2E3742;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 10.5rem;
+  height: 3.5rem;
+  border-radius: 0.250rem;
+  padding: 1rem;
+  padding-left: 1.6rem;
+  border: 1px solid #D7E0EB;
+  box-shadow: 0px 8px 4px 0px #0D111B14;
+  outline: none;
+
+  &::placeholder {
+    color: #8C9CAD;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &:hover {
+    border: 1px solid #008B57;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid #008B57;
+    box-shadow: 0px 8px 4px 0px #0D111B14, 0 0 0 2px rgba(0, 139, 87, 0.1);
+  }
+`;
+
+const RegularFieldInput = styled.input`
   color: #2E3742;
   font-size: 1rem;
   font-weight: 400;
@@ -58,8 +105,14 @@ const NumberFieldInput = styled.input`
     font-weight: 400;
   }
 
-  :hover {
-    border: transparent;
+  &:hover {
+    border: 1px solid #008B57;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid #008B57;
+    box-shadow: 0px 8px 4px 0px #0D111B14, 0 0 0 2px rgba(0, 139, 87, 0.1);
   }
 `;
 
@@ -131,10 +184,10 @@ const ConvertButton = styled.button`
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background: #006B44;
+    background: #00AB63;
   }
 `;
 
@@ -151,14 +204,17 @@ export default function ContentComponent() {
           <FieldLabel>
             Dólár
           </FieldLabel>
-          <NumberFieldInput type='number' placeholder='$1,00' />
+          <InputWrapper>
+            <CurrencySymbol>$</CurrencySymbol>
+            <NumberFieldInput type='number' placeholder='1,00' />
+          </InputWrapper>
         </FieldGroup>
 
         <FieldGroup>
           <FieldLabel>
             Taxa do estado
           </FieldLabel>
-          <NumberFieldInput type='number' placeholder='0%' />
+          <RegularFieldInput type='string' placeholder='0%' />
         </FieldGroup>
       </CurrencyForm>
 
